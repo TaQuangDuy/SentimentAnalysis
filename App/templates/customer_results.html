@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Results</title>
+</head>
+<body>
+    <h1>Customer Results</h1>
+    <ul>
+        {% for link, score in product_scores %}
+            <li><a href="{{ link }}">{{ link }}</a>: {{ score }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
