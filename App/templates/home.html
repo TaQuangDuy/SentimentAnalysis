@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Shopping Recommendation System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Product Review Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Welcome to Shopping Recommendation System</h1>
-    <a href="/customer">Customer</a>
-    <a href="/saler">Saler</a>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('customer') }}">Customer</a></li>
+            <li><a href="{{ url_for('saler') }}">Saler</a></li>
+        </ul>
+    </nav>
 </body>
 </html>

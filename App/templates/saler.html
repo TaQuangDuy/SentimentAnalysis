@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Saler</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saler - Upload Product Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Saler</h1>
-    <form method="post" enctype="multipart/form-data">
-        <label for="file">Upload CSV:</label>
-        <input type="file" id="file" name="file"><br>
-        <input type="submit" value="Submit">
+    <h1>Upload Product Data</h1>
+    <form action="{{ url_for('saler') }}" method="POST" enctype="multipart/form-data">
+        <label for="file">Choose file to upload:</label>
+        <input type="file" id="file" name="file" required>
+        <button type="submit">Upload</button>
     </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
 </body>
 </html>

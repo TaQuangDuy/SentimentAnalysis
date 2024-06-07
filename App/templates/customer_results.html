@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Customer Results</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer - Product Review Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Customer Results</h1>
+    <h1>Top 3 Product Review Results</h1>
+
+    <h2>Product Links</h2>
     <ul>
-        {% for link, score in product_scores %}
-            <li><a href="{{ link }}">{{ link }}</a>: {{ score }}</li>
+        {% for link, average_score in top_reviews_list %}
+            <li>
+                <a href="{{ link }}">{{ link.split('/')[2] }}</a> - Average Score: {{ average_score }}
+            </li>
         {% endfor %}
     </ul>
+
+    <a href="{{ url_for('customer') }}">Back to Search</a>
 </body>
 </html>
