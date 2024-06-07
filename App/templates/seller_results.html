@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saler - Upload Product Data</title>
+    <title>Seller - Upload Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Upload Product Data</h1>
-    <form action="{{ url_for('saler') }}" method="POST" enctype="multipart/form-data">
-        <label for="file">Choose file to upload:</label>
-        <input type="file" id="file" name="file" required>
-        <button type="submit">Upload</button>
-    </form>
+    <h1>Upload Result</h1>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
@@ -23,5 +18,7 @@
         </ul>
     {% endif %}
     {% endwith %}
+
+    <a href="{{ url_for('seller') }}">Back to Upload</a>
 </body>
 </html>

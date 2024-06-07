@@ -47,13 +47,13 @@ def customer():
     return render_template('customer.html')
 
 
-@app.route('/saler', methods=['GET', 'POST'])
-def saler():
+@app.route('/seller', methods=['GET', 'POST'])
+def seller():
     if request.method == 'POST':
         file = request.files.get('file')
         if not file:
             flash('No file selected', 'error')
-            return redirect(url_for('saler'))
+            return redirect(url_for('seller'))
         try:
             # Đọc tệp CSV
             df = pd.read_csv(file)
@@ -65,8 +65,8 @@ def saler():
         except Exception as e:
             flash(f'An error occurred: {str(e)}', 'error')
 
-        return redirect(url_for('saler'))
-    return render_template('saler.html')
+        return redirect(url_for('seller'))
+    return render_template('seller.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
